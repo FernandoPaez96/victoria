@@ -1,12 +1,148 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
-  <tittle>
-    asdasdas
-  </tittle>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector de Películas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+        }
+        .genre-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .genre-section label {
+            margin: 5px;
+        }
+        .subgenre-section {
+            display: none;
+        }
+        .subgenre-section label {
+            margin: 5px;
+        }
+        #movieContainer {
+            text-align: center;
+            display: none;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
 </head>
 <body>
-  <h1> adsad</h1>
+    <h1>Buenassss vicky elegi tu peli</h1>
+    <div class="genre-section">
+        <input type="radio" name="genre" value="romantic">
+        <label>Románticas</label>
+
+        <input type="radio" name="genre" value="horror">
+        <label>Terror</label>
+
+        <input type="radio" name="genre" value="drama">
+        <label>Drama</label>
+
+        <input type="radio" name="genre" value="sci-fi">
+        <label>Ciencia ficción</label>
+        
+        <input type="radio" name="genre" value="comedy">
+        <label>Comedia</label>
+        <!-- Agrega más géneros de películas aquí -->
+    </div>
+
+    <div class="subgenre-section" id="romanticSubgenres">
+        <input type="radio" name="subgenre" value="romantic-romantic">
+        <label>Románticas Románticas</label>
+
+        <input type="radio" name="subgenre" value="romantic-complicated">
+        <label>Románticas Complicadas</label>
+
+        <input type="radio" name="subgenre" value="romantic-comedias">
+        <label>Comedias románticas</label>
+    </div>
+
+    <button type="button" onclick="filterMovies()">Siguiente</button>
+
+    <div id="movieContainer">
+        <h2>¡Tu película es:</h2>
+        <p id="selectedMovie"></p>
+    </div>
+
+    <script>
+        const movies = {
+            "romantic-romantic": [
+                "About Time",
+                "La La Land",
+                "Amor a segunda vista",
+                "Un lugar donde refugiarse"
+            ],
+            "romantic-comedias": [
+                "Una buena receta",
+                "La chica de al lado"
+            ],
+            "romantic-complicated": [
+                "50 Sombras de Grey"
+            ],
+            "horror": [
+                "Aguas profundas",
+                "Telefono Negro"
+            ],
+            "drama": [
+                "Whiplash"
+            ],
+            "comedy": [
+                "Babylon",
+                "Dos tipos peligrosos"
+            ],
+            "sci-fi": [
+                "La llegada",
+                "Codigo da Vinci"
+            ]
+            // Agrega más géneros y películas aquí
+        };
+
+        function filterMovies() {
+            const selectedGenre = document.querySelector('input[name="genre"]:checked');
+            const selectedSubgenre = document.querySelector('input[name="subgenre"]:checked');
+
+            if (!selectedGenre) {
+                alert('Selecciona un género.');
+                return;
+            }
+
+            if (selectedGenre.value === 'romantic' && !selectedSubgenre) {
+                alert('Selecciona una subcategoría romántica.');
+                return;
+            }
+
+            const selectedMovie = movies[selectedSubgenre ? selectedSubgenre.value : selectedGenre.value][Math.floor(Math.random() * movies[selectedSubgenre ? selectedSubgenre.value : selectedGenre.value].length)];
+
+            const movieContainer = document.getElementById('movieContainer');
+            movieContainer.style.display = 'block';
+
+            const selectedMovieElement = document.getElementById('selectedMovie');
+            selectedMovieElement.textContent = selectedMovie;
+        }
+
+        const genreSection = document.querySelector('.genre-section');
+        const romanticSubgenres = document.getElementById('romanticSubgenres');
+
+        genreSection.addEventListener('click', function() {
+            if (document.querySelector('input[name="genre"]:checked').value === 'romantic') {
+                romanticSubgenres.style.display = 'flex';
+            } else {
+                romanticSubgenres.style.display = 'none';
+            }
+        });
+    </script>
 </body>
-  
 </html>
