@@ -5,41 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selector de Películas</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            text-align: center;
-        }
-        .genre-section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .genre-section label {
-            margin: 5px;
-        }
-        .subgenre-section {
-            display: none;
-        }
-        .subgenre-section label {
-            margin: 5px;
-        }
-        #movieContainer {
-            text-align: center;
-            display: none;
-        }
-        button {
-            display: block;
-            margin: 20px auto;
-        }
+       body {
+    background-image: url("fondo.jpg");
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: white; /* Cambia el color del texto del título */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente para destacar el título */
+    padding: 10px; /* Añade espacio alrededor del título */
+}
+
+/* Estilos para las secciones de género */
+.genre-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para destacar las opciones */
+    padding: 10px; /* Añade espacio alrededor de las opciones */
+}
+
+.genre-section label {
+    margin: 5px;
+    color: black; /* Cambia el color del texto de las etiquetas de género */
+}
+.subgenre-section {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para destacar las subopciones */
+    padding: 10px; /* Añade espacio alrededor de las subopciones */
+    display: flex; /* Utilizar flexbox para centrar los elementos */
+    justify-content: center; /* Centrar horizontalmente los elementos */
+    align-items: center; /* Centrar verticalmente los elementos */
+}
+/* Estilos para las subsecciones de género romántico */
+.subgenre-section {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para destacar las subopciones */
+    padding: 10px; /* Añade espacio alrededor de las subopciones */
+}
+
+.subgenre-section label {
+    margin: 5px;
+    color: black; /* Cambia el color del texto de las etiquetas de subgénero */
+}
+
+#movieContainer {
+    text-align: center;
+    display: none;
+    margin-top: 20px; /* Agrega un margen superior para separar el resultado del resto del contenido */
+    padding: 10px; /* Añade espacio alrededor del contenedor de resultado */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para destacar el resultado */
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+}
     </style>
 </head>
 <body>
+    
     <h1>Buenassss vicky elegi tu peli</h1>
     <div class="genre-section">
         <input type="radio" name="genre" value="romantic">
@@ -64,7 +94,7 @@
         <label>Románticas Románticas</label>
 
         <input type="radio" name="subgenre" value="romantic-complicated">
-        <label>🔥🔥Románticas Complicadas🔥🔥</label>
+        <label>Románticas Complicadas</label>
 
         <input type="radio" name="subgenre" value="romantic-comedias">
         <label>Comedias románticas</label>
@@ -78,6 +108,7 @@
         <h2>Busca a la cafetera dolca asi la vemos</h2>
         <img src="nala.jpg" alt="Descripción de la imagen"  width="240" height="400">
         <img src="dolca.jpg" alt="Descripción de la imagen"  width="240" height="400">
+
     </div>
 
     <script>
